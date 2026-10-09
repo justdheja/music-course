@@ -23,7 +23,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # Node 24 ships npm 11, the version that wrote package-lock.json.
+          # Node 22's npm 10 crashed `npm ci` here ("Exit handler never called").
+          node-version: 24
           cache: npm
 
       - run: npm ci
