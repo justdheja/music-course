@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E1483D"/><stop offset="1" stop-color="#6e1812"/></linearGradient>
+    <radialGradient id="vinyl" cx=".35" cy=".3" r="1"><stop offset="0" stop-color="#3a3a40"/><stop offset=".5" stop-color="#121214"/><stop offset="1" stop-color="#050505"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <clipPath id="disc"><circle cx="200" cy="215" r="150"/></clipPath>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 0"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <ellipse cx="210" cy="378" rx="130" ry="14" fill="#000" opacity=".35" filter="url(#soft)"/>
+  <circle cx="200" cy="215" r="150" fill="url(#vinyl)"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".08">
+    <circle cx="200" cy="215" r="70"/><circle cx="200" cy="215" r="80"/><circle cx="200" cy="215" r="90"/>
+    <circle cx="200" cy="215" r="100"/><circle cx="200" cy="215" r="110"/><circle cx="200" cy="215" r="120"/>
+    <circle cx="200" cy="215" r="130"/><circle cx="200" cy="215" r="140"/>
+  </g>
+  <g clip-path="url(#disc)">
+    <path d="M200 215 L330 45 L400 105 Z" fill="url(#sheen)"/>
+    <path d="M200 215 L70 385 L0 325 Z" fill="url(#sheen)" opacity=".7"/>
+  </g>
+  <circle cx="200" cy="215" r="52" fill="#2f6fd6"/>
+  <circle cx="200" cy="215" r="40" fill="none" stroke="#fff" stroke-opacity=".3"/>
+  <circle cx="200" cy="215" r="7" fill="#161616"/>
+  <!-- beamed eighth notes -->
+  <g fill="#fff" opacity=".85">
+    <ellipse cx="62" cy="372" rx="11" ry="8" transform="rotate(-20 62 372)"/>
+    <ellipse cx="108" cy="362" rx="11" ry="8" transform="rotate(-20 108 362)"/>
+    <rect x="70" y="318" width="3" height="54"/><rect x="116" y="308" width="3" height="54"/>
+    <polygon points="70,318 119,308 119,320 70,330"/>
+  </g>
+  <rect width="400" height="500" filter="url(#grain)"/>
+</svg>

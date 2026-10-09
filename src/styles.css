@@ -1,0 +1,117 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Oswald', sans-serif; color: #fff;
+  background: var(--bg, #E1483D); transition: background .8s ease;
+}
+a { color: inherit; text-decoration: none; }
+
+header {
+  position: fixed; inset: 0 0 auto 0; z-index: 5;
+  display: flex; justify-content: space-between; padding: 36px 6vw;
+  font-weight: 500; font-size: 18px;
+}
+header nav { display: flex; align-items: center; gap: 28px; }
+header a:hover { opacity: .7; }
+.lang { display: inline-flex; gap: 4px; font-size: 14px; }
+.lang button {
+  background: none; border: 1px solid rgba(255,255,255,.5); color: inherit; font: inherit;
+  padding: 2px 10px; border-radius: 999px; cursor: pointer; opacity: .7;
+}
+.lang button.on { background: #fff; color: #111; border-color: #fff; opacity: 1; }
+header a.active { text-decoration: underline; text-underline-offset: 6px; }
+
+/* ---------- Home carousel ---------- */
+.line { position: fixed; top: 10%; bottom: 10%; width: 1px; background: rgba(255,255,255,.35); }
+.line.l { left: 25%; } .line.r { left: 75%; }
+
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.slide {
+  --w: clamp(220px, 23vw, 420px); /* everything inside the slide scales from the image width */
+  position: absolute; left: 50%; top: 50%; width: var(--w);
+  transition: transform .7s cubic-bezier(.65,0,.25,1), opacity .5s;
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(var(--s));
+  cursor: pointer;
+}
+.slide { --y: 0px; }
+.slide:not(.active) { --y: calc(var(--w) * .16); } /* side slides sit lower, titles on a similar line to the centre one */
+.slide.active { cursor: default; z-index: 2; }
+.pic {
+  position: relative; height: calc(var(--w) * 1.25); background: var(--grad); overflow: hidden;
+  display: flex; align-items: center; justify-content: center; font-size: calc(var(--w) * .45);
+  filter: grayscale(1) brightness(.85); transition: filter .7s;
+  background-size: cover; background-position: center;
+}
+.active .pic { filter: none; }
+/* Title: big, centred on the image and wider than it, straddling the image's bottom edge, with a faded reflection */
+.slide h2 {
+  position: relative; left: 50%; transform: translateX(-50%); width: max-content;
+  margin-top: -.45em; line-height: 1; white-space: nowrap;
+  font-weight: 500; font-size: calc(var(--w) * .27); text-transform: uppercase; letter-spacing: .01em;
+  color: #1a1a1a; transition: color .5s;
+  -webkit-box-reflect: below -.08em linear-gradient(transparent 40%, rgba(255,255,255,.45));
+}
+.slide.active h2 { color: #fff; }
+.slide:not(.active) h2 { margin-top: 78px; font-weight: 300; font-size: calc(var(--w) * .19); -webkit-box-reflect: none; }
+.desc {
+  position: absolute; z-index: 3; left: calc(var(--w) * -.2); top: calc(var(--w) * -.1); width: calc(var(--w) * .68);
+  font-weight: 300; font-size: calc(var(--w) * .052); line-height: 1.1; opacity: 0; transition: opacity .5s;
+}
+.buy {
+  position: absolute; z-index: 3; right: calc(var(--w) * -.2); top: calc(var(--w) * -.11);
+  width: calc(var(--w) * .3); height: calc(var(--w) * .3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap;
+  background: #111; color: #fff; font: 500 calc(var(--w) * .055) 'Oswald', sans-serif; text-transform: uppercase;
+  opacity: 0; pointer-events: none; transition: opacity .5s, transform .3s;
+}
+.buy:hover { transform: scale(1.1); }
+.active .desc { opacity: 1; }
+.active .buy { opacity: 1; pointer-events: auto; }
+
+.glow {
+  position: fixed; z-index: 4; width: 12px; height: 12px; border-radius: 50%; pointer-events: none;
+  background: var(--dot, #F5C21A); box-shadow: 0 0 40px 24px var(--dot, #F5C21A);
+  transform: translate(-50%, -50%); opacity: .8; mix-blend-mode: screen;
+}
+.hint { position: fixed; bottom: 28px; width: 100%; text-align: center; font-size: 12px; letter-spacing: 3px; opacity: .6; text-transform: uppercase; }
+
+/* ---------- Inner pages ---------- */
+.page { min-height: 100vh; padding: 130px 6vw 60px; }
+.page h1 { font-weight: 500; font-size: clamp(44px, 7vw, 96px); text-transform: uppercase; line-height: 1; }
+.lead { margin-top: 24px; font-weight: 300; font-size: 20px; line-height: 1.4; max-width: 560px; }
+.back { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; opacity: .8; display: inline-block; margin-bottom: 24px; }
+.back:hover { opacity: 1; }
+
+.course { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 6vw; align-items: center; }
+.pic.big { height: min(560px, 62vh); font-size: 180px; filter: none; }
+.meta { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 28px; font-weight: 300; font-size: 18px; }
+.meta b { font-weight: 500; }
+.cta {
+  display: inline-block; margin-top: 36px; padding: 16px 36px; border: 0; border-radius: 999px; cursor: pointer;
+  background: #111; color: #fff; font: 500 16px 'Oswald', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+  transition: transform .3s;
+}
+.cta:hover { transform: translateY(-2px) scale(1.03); }
+.about { max-width: 900px; }
+
+.center-msg { text-align: center; margin-top: 45vh; }
+
+/* ---------- Loader ---------- */
+#loader {
+  position: fixed; inset: 0; z-index: 99; background: #E1483D;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .6s ease, visibility .6s;
+}
+#loader.done { opacity: 0; visibility: hidden; }
+#loader .bars { display: flex; align-items: center; gap: 6px; height: 56px; }
+#loader .bars i { width: 6px; height: 100%; border-radius: 3px; background: #fff; transform: scaleY(.2); animation: eq 1s ease-in-out infinite; }
+#loader .bars i:nth-child(2) { animation-delay: -.8s; } #loader .bars i:nth-child(3) { animation-delay: -.6s; }
+#loader .bars i:nth-child(4) { animation-delay: -.4s; } #loader .bars i:nth-child(5) { animation-delay: -.2s; }
+@keyframes eq { 0%, 100% { transform: scaleY(.2); } 50% { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { #loader .bars i { animation: none; transform: scaleY(.6); } }
+
+@media (max-width: 700px) {
+  .slide { --w: 220px; }
+  .line, .glow { display: none; }
+  .course { grid-template-columns: 1fr; }
+  .pic.big { height: 320px; font-size: 110px; }
+}

@@ -1,0 +1,96 @@
+{
+  "brand": "DYO music",
+  "ui": {
+    "about": { "id": "TENTANG", "en": "ABOUT" },
+    "buy": { "id": "Beli kursus", "en": "Buy course" },
+    "hint": { "id": "Scroll · Geser · ← →", "en": "Scroll · Drag · ← →" },
+    "back": { "id": "← Semua kursus", "en": "← All courses" },
+    "lessons": { "id": "pelajaran", "en": "lessons" },
+    "enroll": { "id": "Daftar", "en": "Enroll" },
+    "soon": { "id": "Pembayaran untuk {name} segera hadir", "en": "Checkout for {name} coming soon" },
+    "browse": { "id": "Lihat kursus", "en": "Browse courses" },
+    "error": { "id": "Gagal memuat data", "en": "Could not load data" }
+  },
+  "about": {
+    "title": {
+      "id": "Belajar musik dari para pemainnya",
+      "en": "Learn music from people who play it"
+    },
+    "text": {
+      "id": [
+        "Kami mengajarkan keahlian di balik suara: teori, vokal, engineering, dan ritme, lewat kursus singkat, praktis, dan bertahap.",
+        "Setiap kursus dibuat oleh musisi dan produser profesional, jadi kamu belajar hal yang benar-benar penting di studio maupun di atas panggung."
+      ],
+      "en": [
+        "We teach the craft behind the sound: theory, voice, engineering and rhythm, through short, practical, step-by-step courses.",
+        "Every course is built by working musicians and producers, so you learn what actually matters in a studio or on a stage."
+      ]
+    }
+  },
+  "courses": [
+    {
+      "slug": "music-theory",
+      "name": { "id": "Teori Musik", "en": "Music Theory" },
+      "bg": "#E1483D",
+      "dot": "#F5C21A",
+      "emoji": "💿",
+      "image": "/img/music-theory.svg",
+      "grad": "linear-gradient(160deg,#c9323b,#6b1218)",
+      "desc": {
+        "id": "Pengantar teori musik: kenali paranada, kunci, nilai ritme dan nada, birama, serta tanda waktu.",
+        "en": "An introduction to music theory, will introduce you to music staves, clefs, rhythmic and pitch values, rhythmic metre and time signatures."
+      },
+      "lessons": 24,
+      "duration": { "id": "6 minggu", "en": "6 weeks" },
+      "price": { "id": "Rp 799.000", "en": "$49" }
+    },
+    {
+      "slug": "vocal-skills",
+      "name": { "id": "Teknik Vokal", "en": "Vocal Skills" },
+      "bg": "#F5C21A",
+      "dot": "#67D6DE",
+      "emoji": "🎤",
+      "image": "/img/vocal-skills.svg",
+      "grad": "linear-gradient(160deg,#e8a33a,#7a3b12)",
+      "desc": {
+        "id": "Pelajari latihan vokal dan teknik bernyanyi untuk memahami musik dan menjadi penyanyi yang lebih baik, apa pun gaya musik favoritmu.",
+        "en": "Learn various vocal exercises and singing techniques to understand music and become a better singer, regardless of what musical styles you prefer."
+      },
+      "lessons": 30,
+      "duration": { "id": "8 minggu", "en": "8 weeks" },
+      "price": { "id": "Rp 949.000", "en": "$59" }
+    },
+    {
+      "slug": "mastering",
+      "name": { "id": "Mastering", "en": "Mastering" },
+      "bg": "#67D6DE",
+      "dot": "#E1483D",
+      "emoji": "🎚️",
+      "image": "/img/mastering.svg",
+      "grad": "linear-gradient(160deg,#1de0b5,#0b2a8f)",
+      "desc": {
+        "id": "Kursus bertahap tentang mastering engineering. Pelajari cara meningkatkan kualitas audio musikmu.",
+        "en": "The step-by-step course about mastering engineering. Learn how to improve the audio quality of your music."
+      },
+      "lessons": 18,
+      "duration": { "id": "4 minggu", "en": "4 weeks" },
+      "price": { "id": "Rp 1.099.000", "en": "$69" }
+    },
+    {
+      "slug": "beat-making",
+      "name": { "id": "Membuat Beat", "en": "Beat Making" },
+      "bg": "#3A68FC",
+      "dot": "#2ee66b",
+      "emoji": "🥁",
+      "image": "/img/beat-making.svg",
+      "grad": "linear-gradient(160deg,#2b2b2b,#101010 60%,#5a2bd9)",
+      "desc": {
+        "id": "Buat beat yang lebih baik lewat pola drum programming dan tips gaya, termasuk Hip Hop, Footwork, Funk, dan masih banyak lagi.",
+        "en": "Build Better Beats through drum programming patterns and style tips including Hip Hop, Footwork, Funk, and much more"
+      },
+      "lessons": 20,
+      "duration": { "id": "5 minggu", "en": "5 weeks" },
+      "price": { "id": "Rp 899.000", "en": "$55" }
+    }
+  ]
+}
